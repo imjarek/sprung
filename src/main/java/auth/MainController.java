@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
+import java.util.Map;
+
 
 @Controller    // This means that this class is a Controller
 @RequestMapping(path="/user")
@@ -44,4 +47,8 @@ public class MainController {
         return userRepository.findAll();
     }
 
+    @PostMapping(path="filter")
+    public @ResponseBody Iterable<User> searchUsers (@RequestParam String name, Map<String, Object> model) {
+        return userRepository.findByName(name);
+    }
 }
