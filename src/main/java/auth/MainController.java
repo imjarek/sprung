@@ -2,6 +2,7 @@ package auth;
 
 import auth.repo.UserRepository;
 import auth.repo.User;
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.stereotype.Controller;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
 
 @Controller    // This means that this class is a Controller
 @RequestMapping(path="/user")
@@ -21,6 +23,7 @@ public class MainController {
     public static void main(String[] args) {
         SpringApplication.run(Application.class, args);
     }
+
     @PostMapping(path="/add") // Map ONLY POST Requests
 
     public @ResponseBody String addNewUser (@RequestParam String name
