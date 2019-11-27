@@ -6,4 +6,13 @@
         <property name="rootLoggerLevel" value="FINE" />
         <property name="printedLoggerLevel" value="FINE"/>
     </bean>
+    <bean id="LoggerConfig" class="auth.LoggerConfig">
+    </bean>
+
+    <bean id="VaultService" class="auth.vault.VaultService">
+        <property name="prop" value="SOME_VALUE" />
+    </bean>
+    <bean id="VaultApp" class="auth.vault.VaultApp">
+        <constructor-arg ref="VaultService"/>
+    </bean>
 </beans>
